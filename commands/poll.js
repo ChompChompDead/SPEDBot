@@ -3,7 +3,7 @@ module.exports = {
   name: "poll",
   description: "Create a simple yes or no poll",
   category: "fun",
-  run: async (bot, message, args) => {
+  run: async (client, message, args) => {
     if (!message.member.permissions.has("MANAGE_SERVER"))
       return message.channel.send(
         `You do not the correct permissions, ${message.author.username}`
