@@ -1,13 +1,12 @@
 const Discord = require('discord.js')
 const prefix = require('../config.json')
-const {MessageEmbed} = require('discord.js')
 
 module.exports={
     name:"8ball",
     description:"Answers your questions!",
     usage: "<question>",
     run: async(client,message,args)=>{
-        let question = message.content.split(client.prefix.length+6)
+        let question = args.join(" ");
         if(!question){
             return message.reply('You did not specify your question.')
         } else{
@@ -22,7 +21,7 @@ module.exports={
                 "**const Yes = true**"
             ]
             let Response = responses[Math.floor(Math.random()*(responses.length)-1)]
-            let Embed = new MessageEmbed()
+            let Embed = new Discord.MessageEmbed()
             .setTitle('**8ball**')
             .setColor(`BLUE`)
             .setDescription('**Your Question:** '+question+"\n**Your Answer:** "+Response)
